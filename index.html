@@ -4,7 +4,6 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Philipp Schmitt</title>
   <meta name="description" content="About Philipp Schmitt">
   <meta name="author" content="Philipp Schmitt">
@@ -12,150 +11,162 @@
   <!-- Favicon -->
   <link rel="icon" href="https://www.gravatar.com/avatar/8635e7a28259cb6da1c6a3c96c75b425?s=200">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
+    /* Custom Styles */
     body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      background-color: #222;
-      color: #fff;
-      transition: background-color 0.3s ease;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
     }
 
-    .custom-link {
-      text-decoration: none;
-      color: inherit;
+    /* Define CSS Variables for Light and Dark Modes */
+    body.light-mode {
+      --bg-color: #f8fafc; /* Tailwind's gray-50 */
+      --text-color: #1f2937; /* Tailwind's gray-800 */
+      --link-color: #1d4ed8; /* Tailwind's blue-700 */
+      --link-hover-color: #1e40af; /* Tailwind's blue-800 */
+      --subtitle-color: #4b5563; /* Tailwind's gray-600 */
     }
 
-    .container {
-      margin-top: 80px;
-      text-align: center;
+    body.dark-mode {
+      --bg-color: #111827; /* Tailwind's gray-900 */
+      --text-color: #f9fafb; /* Tailwind's gray-100 */
+      --link-color: #60a5fa; /* Tailwind's blue-400 */
+      --link-hover-color: #3b82f6; /* Tailwind's blue-500 */
+      --subtitle-color: #9ca3af; /* Tailwind's gray-400 */
     }
 
-    ul {
-      padding-left: 0;
-      list-style: none;
-      text-align: left;
+    /* Initialize with Dark Mode Variables */
+    body {
+      --bg-color: #111827;
+      --text-color: #f9fafb;
+      --link-color: #60a5fa;
+      --link-hover-color: #3b82f6;
+      --subtitle-color: #9ca3af;
     }
 
-    li {
-      margin-bottom: 10px;
+    /* Dark Mode Toggle Button Styles */
+    #darkModeToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s;
+      color: var(--text-color);
     }
 
-    .rounded-image {
-      border-radius: 50%;
-      width: 80px;
-      display: block;
-      margin: 0 auto;
-      margin-bottom: 20px;
+    #darkModeToggle:hover {
+      transform: scale(1.1);
     }
 
+    /* Apply CSS Variables */
     .title {
-      margin-bottom: 5px;
-      text-align: center;
+      color: var(--text-color);
     }
 
     .subtitle {
-      color: #999;
-      margin: 0;
-      margin-bottom: 5px;
-      text-align: center;
+      color: var(--subtitle-color);
     }
 
-    /* Dark Mode */
-    body.light-mode {
-      background-color: #f8f9fa;
-      color: #222;
+    a {
+      color: var(--link-color);
+      transition: color 0.3s;
     }
 
-    .links-container {
-      margin-top: 40px;
-      margin-left: 60px;
-      text-align: center;
-    }
-
-    .dark-mode-toggle-container {
-      position: fixed;
-      top: 0;
-      right: 0;
-      padding: 20px;
-    }
-
-    .dark-mode-toggle {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: transparent;
-      border: none;
-      color: inherit;
-      font-size: 24px;
-      cursor: pointer;
+    a:hover {
+      color: var(--link-hover-color);
     }
   </style>
 </head>
 
 <body class="dark-mode">
-  <div class="container text-center">
+  <div class="container mx-auto px-4 py-16 flex flex-col items-center">
     <a href="https://github.com/pschmitt">
-      <img src="https://www.gravatar.com/avatar/8635e7a28259cb6da1c6a3c96c75b425?s=200" alt="Philipp Schmitt's Gravatar" class="rounded-image">
+      <img src="https://www.gravatar.com/avatar/8635e7a28259cb6da1c6a3c96c75b425?s=200" alt="Philipp Schmitt's Gravatar"
+        class="w-32 h-32 rounded-full shadow-lg hover:scale-105 transform transition duration-300">
     </a>
-    <h1 class="title">Philipp Schmitt</h1>
-    <p class="subtitle"><span style="font-size: 20px;">🌻</span> Pedantic, <a href="https://www.linkedin.com/in/pschmitt" class="custom-link">SRE</a></p>
+    <h1 class="text-4xl font-semibold mt-6 title">Philipp Schmitt</h1>
+    <p class="text-lg mt-2 flex items-center subtitle">
+      <span class="text-2xl mr-2">🌻</span>
+      Pedantic, <a href="https://www.linkedin.com/in/pschmitt" class="hover:underline">SRE</a>
+    </p>
 
-    <div class="links-container">
-      <ul style="display: inline-block; text-align: left;">
-        <li>
-          <a href="https://github.com/pschmitt" class="custom-link">⌨️ GitHub</a>
-        </li>
-        <li>
-          <a href="https://fosstodon.org/@pschmitt" class="custom-link">🐘 Mastodon</a>
-        </li>
-        <li>
-          <a href="./resume-pschmitt-2024.pdf" class="custom-link">📄 Resume (2024)</a>
-        </li>
-        <li>
-          <a href="https://keybase.io/pschmitt" class="custom-link">🔑 Keybase</a>
-          (<a href="https://keybase.io/pschmitt/key.asc" class="custom-link">pubkey.asc</a>)
-        </li>
-      </ul>
-    </div>
-
-    <div class="dark-mode-toggle-container">
-      <button id="darkModeToggle" class="dark-mode-toggle"></button>
-    </div>
+    <ul class="mt-8 space-y-4 text-lg">
+      <li>
+        <a href="https://github.com/pschmitt" class="flex items-center">
+          ⌨️ GitHub
+        </a>
+      </li>
+      <li>
+        <a href="https://fosstodon.org/@pschmitt" class="flex items-center">
+          🐘 Mastodon
+        </a>
+      </li>
+      <li>
+        <a href="./resume-pschmitt-2024.pdf" class="flex items-center">
+          📄 Resume (2024)
+        </a>
+      </li>
+      <li class="flex items-center">
+        <a href="https://keybase.io/pschmitt" class="hover:underline">
+          🔑 Keybase
+        </a>
+        <span class="mx-2">(</span>
+        <a href="https://keybase.io/pschmitt/key.asc" class="hover:underline">
+          pubkey.asc
+        </a>
+        <span>)</span>
+      </li>
+    </ul>
   </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Dark Mode Toggle Button -->
+  <button id="darkModeToggle" class="focus:outline-none" aria-label="Toggle Dark Mode">
+    🌞
+  </button>
 
+  <!-- Dark Mode Toggle Script -->
   <script>
-    function setupDarkModeToggle() {
-      const darkModeToggle = document.getElementById('darkModeToggle');
-      const body = document.body;
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
 
-      function setDarkModeEmoji() {
-        if (body.classList.contains('light-mode')) {
-          darkModeToggle.textContent = '🌚'; /* Use 🌚 for light mode */
-        } else {
-          darkModeToggle.textContent = '🌞'; /* Use 🌞 for dark mode */
-        }
-      }
-
-      darkModeToggle.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
-        setDarkModeEmoji();
-      });
-
-      setDarkModeEmoji();
+    // Load theme from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      body.classList.remove('dark-mode');
+      body.classList.add('light-mode');
+      darkModeToggle.textContent = '🌚';
+    } else {
+      // Default to dark mode
+      body.classList.remove('light-mode');
+      body.classList.add('dark-mode');
+      darkModeToggle.textContent = '🌞';
     }
 
-    setupDarkModeToggle();
+    darkModeToggle.addEventListener('click', () => {
+      if (body.classList.contains('dark-mode')) {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light');
+        darkModeToggle.textContent = '🌚';
+      } else {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark');
+        darkModeToggle.textContent = '🌞';
+      }
+    });
   </script>
 </body>
 
 </html>
-<!-- vim: set ft=html et ts=2 sw=2: -->
