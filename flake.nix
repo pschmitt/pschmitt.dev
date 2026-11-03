@@ -22,7 +22,7 @@
       src = lib.cleanSourceWith {
         src = self;
         filter =
-          path: type:
+          path: _type:
           let
             base = builtins.baseNameOf path;
           in
